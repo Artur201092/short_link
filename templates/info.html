@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+          integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <title>Info</title>
+</head>
+<body style="background-color: gainsboro">
+
+    <h1>Url Info</h1>
+    <p><label style="color: crimson">Main Url</label> - {{ main_url }}</p>
+    <p><label style="color: crimson">Short Url</label> - {{ short_url }}</p>
+    <p><label style="color: crimson">Url Seen Count</label> - {{ seen_count }}</p>
+    <p><label style="color: crimson">Url User</label> - {{ user }}</p>
+
+</body>
+<script>
+    function copylink(elementId) {
+        var aux = document.createElement("input");
+        aux.setAttribute("value", document.getElementById(elementId).innerHTML);
+        document.body.appendChild(aux);
+        aux.select();
+        document.execCommand("copy");
+        document.body.removeChild(aux);
+    }
+</script>
+</html>

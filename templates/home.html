@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+          integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <title>Shorting Url</title>
+</head>
+<body style="background-color: gainsboro">
+
+    <h1>Shorting Urls</h1>
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form }}
+        <button type="submit" class="btn btn-primary">Generate Url</button>
+    </form>
+    {% if main_link %}
+        <a href="{{ main_link }}" id="link">{{ short_link }}</a>
+        <button onclick="copylink('link')" class="btn btn-primary">
+            Copy link
+        </button></div>
+    {% endif %}
+
+</body>
+<script>
+    function copylink(elementId) {
+        var aux = document.createElement("input");
+        aux.setAttribute("value", document.getElementById(elementId).innerHTML);
+        document.body.appendChild(aux);
+        aux.select();
+        document.execCommand("copy");
+        document.body.removeChild(aux);
+    }
+</script>
+</html>
