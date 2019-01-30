@@ -8,5 +8,8 @@ class Urls(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     seen_count = models.IntegerField(null=True, blank=True, default=0)
 
+    def __str__(self):
+        return self.url
+
     class Meta:
-        verbose_name_plural = "Urls"
+        verbose_name_plural = "Url"

@@ -11,11 +11,12 @@ class Command(BaseCommand):
     def handle(self, *args, **kwargs):
         results = requests.get('https://randomuser.me/api/?results=%s' %kwargs['total']).json()['results']
         for user in results:
-            User.objects.create(
+            user, created = User.objects.get_or_create(
                 username=user['login']['username'],
                 password=user['login']['password'],
                 first_name=user['name']['first'],
                 last_name=user['name']['last'],
                 email=user['email'],
-                date_joined=user['registered']['date']
-            )
+                date_joined=user['registered']['date'])
+            if created:
+                continue

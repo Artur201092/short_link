@@ -1,7 +1,6 @@
 Create virtualenv
 
     cd /var/envs && mkvirtualenv --python=/usr/bin/python3 short_url
-    pip install mysqlclient
     
 Install requirements for a project.
 
