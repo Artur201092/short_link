@@ -16,11 +16,10 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from django.urls import path
-from apps.urls import views as urls_view
-
+from apps.urls.views import HomelView, SlugView
 
 urlpatterns = [
-    url(r'^$', urls_view.home, name='home'),
     path('admin/', admin.site.urls),
-    url(r'(?P<slug>[\d!a-zA-Z]+)/$', urls_view.slug, name='slug'),
+    path('', HomelView.as_view(template_name="home.html")),
+    url(r'(?P<slug>[\d!a-zA-Z]+)/$', SlugView.as_view(), name='slug'),
 ]
